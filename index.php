@@ -46,9 +46,13 @@ class Movie
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
-				<?php $film_1 = new Movie('Il Signore Degli Anelli', ' 2001', ' fantasy', 10);
+				<?php
+				$film_1 = new Movie('Il Signore Degli Anelli', ' 2001', ' fantasy', 9.3);
 				var_dump($film_1);
-				echo $film_1->getStatus()
+				echo $film_1->getStatus();
+				$film_2 = new Movie('Spiderman', '2021', 'Azione', 6.3);
+				var_dump($film_2);
+				echo $film_2->getStatus();
 				?>
 			</div>
 		</div>
