@@ -1,5 +1,35 @@
 <?php
-
+//DEFINIZIONE CLASSE 'MOVIE
+class Movie
+{
+	//proprietà dell'istanza
+	public $title;
+	public $year;
+	public $genre;
+	public $vote;
+	// construct 
+	public function __construct($_title, $_year, $_genre, $_vote)
+	{
+		$this->title = $_title;
+		$this->year = $_year;
+		$this->genre = $_genre;
+		$this->vote = $_vote;
+	}
+	//funzione che ritorna un giudizio in base al voto
+	public function getStatus()
+	{
+		$vote = $this->vote;
+		if ($vote >= 9) {
+			return 'Masterpiece';
+		} elseif ($vote < 9 && $vote > 7) {
+			return 'Good';
+		} elseif ($vote <= 7 && $vote >= 6) {
+			return 'Average';
+		} else {
+			return 'Bad';
+		}
+	}
+}
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +43,16 @@
 </head>
 
 <body>
-
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<?php $film_1 = new Movie('Il Signore Degli Anelli', ' 2001', ' fantasy', 10);
+				var_dump($film_1);
+				echo $film_1->getStatus()
+				?>
+			</div>
+		</div>
+	</div>
 </body>
 
 </html>
