@@ -8,9 +8,9 @@ class Genres
 	{
 		$this->array_genres = $_array_genres;
 	}
-
-	public function getArrayGenres()
+	//funzione che trasforma l'array dei generi in stringa
+	public function getStringGenres()
 	{
-		return $this->array_genres;
+		return implode(', ', $this->array_genres);
 	}
 }

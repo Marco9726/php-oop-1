@@ -1,6 +1,5 @@
 <?php
-
-
+include __DIR__ . '/db.php';
 ?>
 
 <!DOCTYPE html>
@@ -17,11 +16,17 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="col-12">
-				<?php
-
-				?>
-			</div>
+			<?php foreach ($movies as $movie) {	?>
+				<div class="card p-3" style="width: calc(100% / 3)">
+					<?php
+					echo $movie->getImgHtml();
+					echo $movie->getTitleHtml();
+					echo '<div>' . $movie->getYearHtml() . '</div>';
+					echo $movie->getStringGenresHtml();
+					echo '<div> Valutazione: ' . $movie->getStatus() . '</div>';
+					?>
+				</div>
+			<?php  } ?>
 		</div>
 	</div>
 </body>

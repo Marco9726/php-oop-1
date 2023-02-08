@@ -17,29 +17,38 @@ class Movie
 		$this->genres = $_genres; //istanza
 		$this->vote = $_vote;
 	}
+	//funzione che ritorna il titolo dentro un h3
+	public function getTitleHtml()
+	{
+		return '<h3>' . $this->title . '</h3>';
+	}
 	//funzione che ritorna un giudizio in base al voto
 	public function getStatus()
 	{
 		$vote = $this->vote;
 		if ($vote >= 9) {
-			return 'Masterpiece';
+			return 'Capolavoro';
 		} elseif ($vote < 9 && $vote > 7) {
-			return 'Good';
+			return 'Ottimo';
 		} elseif ($vote <= 7 && $vote >= 6) {
-			return 'Average';
+			return 'Discreto';
 		} else {
-			return 'Bad';
+			return 'Scadente';
 		}
 	}
-	//funzione per recuperare l'array dei generi dall'istanza della classe Genres
-	public function getArrayGenres()
-	{
-		return $this->genres->getArrayGenres();
-	}
-
-	//funzione per restituire l'immagine
+	//funzione che ritorna l'immagine nel tag
 	public function getImgHtml()
 	{
 		return '<img src="' . $this->img . '" class="card-img-top">';
+	}
+	//funzione che ritorna l'anno di uscita
+	public function getYearHtml()
+	{
+		return 'Anno di uscita: ' . $this->year;
+	}
+	//funzione che ritorna l'array dei generi in formato stringa
+	public function getStringGenresHtml()
+	{
+		return $this->genres->getStringGenres();
 	}
 }
